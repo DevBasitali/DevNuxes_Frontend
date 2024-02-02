@@ -5,10 +5,11 @@
 }
 
 .home_container{
-    background-image: url('../Images/hero_bg.jpg');
+    background-image: url('../Images/BG.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position:relative;
     width: 100%;
     height: 530px;
 }
