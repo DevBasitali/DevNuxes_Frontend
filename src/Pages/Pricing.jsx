@@ -1,11 +1,11 @@
 import React from "react";
-import WebDev from '../Components/WebDev'
-import './oricing.css'
+// import WebDevCard from '../Components/WebDevCard'
+import './Pricing.css'
 
 const Pricing = () => {
   return (
     <div className="abc">
-      <WebDev/>
+      {/* <WebDevCard/> */}
     </div>
   );
 };
