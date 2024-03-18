@@ -5,6 +5,8 @@ import Logo from "../Images/Logo/logo.png.png";
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpennow, setIsOpennow] = useState(false);
+  const [isOpenOnHover, setisOpenOnHover] = useState(false);
 
   useEffect(() => {
     function handleScroll() {
@@ -19,16 +21,20 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
-
   const handleMouseEnter = () => {
     setIsOpen(true);
   };
 
   const handleMouseLeave = () => {
     setIsOpen(false);
+  };
+
+  const handleMousehover = () => {
+    setisOpenOnHover(true);
+  };
+
+  const handleMousehover_leave = () => {
+    setisOpenOnHover(false);
   };
 
   return (
@@ -51,31 +57,65 @@ const Navbar = () => {
                   />
                 </Link>
               </div>
-              <div className="flex-1 flex justify-center">
+              <div className="flex-1 flex justify-center ">
                 <div class="hidden sm:ml-6 sm:block">
-                  <div class="flex space-x-4">
+                  <div class="flex space-x-4 ">
                     <Link
                       to="/"
-                      class=" hover:bg-gray-700 hover:text-white text-white rounded-md px-3 py-2 text-sm font-medium"
+                      class=" hover:bg-gray-700 hover:text-white text-gray-300 rounded-md px-3 py-2 text-base font-medium"
                       aria-current="page"
                     >
                       Home
                     </Link>
                     <Link
                       to="/About"
-                      class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                      class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium"
                     >
                       About
                     </Link>
-                    <Link
-                      to="/Services"
-                      class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                    >
-                      Services
-                    </Link>
+
                     <div className="relative">
                       <button
-                        className="px-4 py-2 hover:bg-gray-700 hover:text-white text-white rounded-md focus:outline-none"
+                        className="px-4 py-2 hover:bg-gray-700 hover:text-white text-gray-300 rounded-md text-base font-medium focus:outline-none"
+                        onMouseEnter={handleMousehover}
+                        onMouseLeave={handleMousehover_leave}
+                      >
+                        Services
+                      </button>
+                      {isOpenOnHover && (
+                        <div
+                          className="absolute w-48 bg-gray-900 shadow-lg rounded-md"
+                          onMouseEnter={handleMousehover}
+                          onMouseLeave={handleMousehover_leave}
+                        >
+                          <ul className="py-1">
+                            <Link to="/WebsiteDevelopment">
+                              <li className="cursor-pointer px-4 py-2 hover:bg-gray-800 text-white">
+                                Website Development
+                              </li>
+                            </Link>
+                            <Link to="/AndroidDevelopment">
+                              <li className="cursor-pointer px-4 py-2 hover:bg-gray-800 text-white">
+                                Android Development
+                              </li>
+                            </Link>
+                            <Link to="/SEO">
+                              <li className="cursor-pointer px-4 py-2 hover:bg-gray-800 text-white">
+                                SEO
+                              </li>
+                            </Link>
+                            <Link to="/WebsiteDesign">
+                              <li className="cursor-pointer px-4 py-2 hover:bg-gray-800 text-white">
+                                Website Design
+                              </li>
+                            </Link>
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                    <div className="relative">
+                      <button
+                        className="px-4 py-2 hover:bg-gray-700 hover:text-white text-gray-300 rounded-md text-base font-medium focus:outline-none"
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                       >
@@ -83,104 +123,42 @@ const Navbar = () => {
                       </button>
                       {isOpen && (
                         <div
-                          className="absolute mt-2 w-48 bg-gray-900 shadow-lg rounded-md"
+                          className="absolute w-48 bg-gray-900 shadow-lg rounded-md"
                           onMouseEnter={handleMouseEnter}
                           onMouseLeave={handleMouseLeave}
                         >
                           <ul className="py-1">
-                            <Link to='/Services'>
-                            <li className="cursor-pointer px-4 py-2 hover:bg-gray-800 text-white">
-                              Healthcare
-                            </li>
+                            <Link to="/HealthCare">
+                              <li className="cursor-pointer px-4 py-2 hover:bg-gray-800 text-white">
+                                Healthcare
+                              </li>
                             </Link>
-                            <li className="cursor-pointer px-4 py-2 hover:bg-gray-800 text-white">
-                              Education/Training
-                            </li>
-                            <li className="cursor-pointer px-4 py-2 hover:bg-gray-800 text-white">
-                              Sports/Fitness
-                            </li>
-                            <li className="cursor-pointer px-4 py-2 hover:bg-gray-800 text-white">
-                              Food/Resturent
-                            </li>
+                            <Link to="/EducationTraining">
+                              <li className="cursor-pointer px-4 py-2 hover:bg-gray-800 text-white">
+                                Education/Training
+                              </li>
+                            </Link>
+                            <Link to="/SportsFitness">
+                              <li className="cursor-pointer px-4 py-2 hover:bg-gray-800 text-white">
+                                Sports/Fitness
+                              </li>
+                            </Link>
+                            <Link to="/FoodResturent">
+                              <li className="cursor-pointer px-4 py-2 hover:bg-gray-800 text-white">
+                                Food/Resturent
+                              </li>
+                            </Link>
                           </ul>
                         </div>
                       )}
                     </div>
-                    {/* <button
-                      id="dropdownDefaultButton"
-                      data-dropdown-toggle="dropdown"
-                      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                      type="button"
-                    >
-                      Dropdown button{" "}
-                      <svg
-                        class="w-2.5 h-2.5 ms-3"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 10 6"
-                      >
-                        <path
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="m1 1 4 4 4-4"
-                        />
-                      </svg>
-                    </button> */}
-
-                    {/* <div
-                      id="dropdown"
-                      class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-                    >
-                      <ul
-                        class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                        aria-labelledby="dropdownDefaultButton"
-                      >
-                        <li>
-                          <a
-                            href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                          >
-                            Dashboard
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                          >
-                            Settings
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                          >
-                            Earnings
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="#"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                          >
-                            Sign out
-                          </a>
-                        </li>
-                      </ul>
-                    </div> */}
-
-                    {/* <Link
-                      to="/Contact"
-                      class="text-gray-300 hover:text-blue-800 rounded-md border border-blue-500 px-3 py-2 text-sm font-medium"
-                    >
-                      <button>Contact Us</button>
-                    </Link> */}
                   </div>
                 </div>
+                <Link to="/Contact">
+                  <button className="ml-5 px-3 py-2 border border-alpha text-white rounded-md hover:bg-alpha">
+                    Contact us
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

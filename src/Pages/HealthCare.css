@@ -1,0 +1,4 @@
+.Container{
+    background-color: var(--primary-color);
+    height: 1000px;
+}
