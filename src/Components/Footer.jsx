@@ -1,10 +1,11 @@
 import React from "react";
+import './Footer.css'
 
 const Footer = () => {
   return (
     <>
       <footer>
-        <div className="bg-black text-white">
+        <div className="footer bg-gray-800 bg-teal-950-transparent text-white">
           <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
             <div className="sm:flex sm:items-center sm:justify-between">
               <a
