@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     --primary-color: #0e1424;
-    --secondary-color: #adbbc6;
+    --secondary-color: #1F2937;
+    /* --secondary-color: #adbbc6; */
     --alpha-color: #7d2ae8;
 }

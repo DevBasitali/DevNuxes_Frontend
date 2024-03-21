@@ -1,17 +1,18 @@
 
 .home-page{
     background-color: var(--primary-color);
-    height: 1600px;
+    height: 1800px;
 }
 
 .home_container{
-    background-image: url('../Images/bg-latest.svg');
+    /* background-image: url('../Images/bg-latest.svg'); */
+    background-image:linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)), url('../Images/HeroBg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position:relative;
     width: 100%;
-    height: 530px;
+    height: 630px;
 }
 
 .counter-card{
