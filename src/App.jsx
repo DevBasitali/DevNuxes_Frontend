@@ -17,8 +17,6 @@ import AndroidDevelopment from "./Pages/AndroidDevelopment";
 import SEO from "./Pages/SEO";
 import WebsiteDesign from "./Pages/WebsiteDesign";
 
-
-
 const App = () => {
   return (
     <>

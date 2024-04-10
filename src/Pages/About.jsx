@@ -6,10 +6,10 @@ const About = () => {
   return (
     <div className="Page-Color flex flex-col">
       <div className="services mx-20 my-20 justify-center">
-        <h3 className="text-center font-bold text-3xl text-white relative mt-8 mb-5">
+        <h3 className="text-center font-bold text-4xl text-white relative mt-8 mb-5">
           ABOUT US
         </h3>
-        <p className="text-center text-xl text-white relative mt-8">
+        <p className="text-center text-xl text-gray-300 relative mt-8">
           DevNuxes is a dynamic digital agency specializing in comprehensive
           solutions for online success. With a strategic focus on software
           development, website development, SEO, and website designing, we

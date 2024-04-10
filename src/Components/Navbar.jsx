@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Logo from "../Images/Logo/logo.png.png";
+// import Logo from "../Images/Logo/Devnuxes.png";
+import Logo from "../Images/Logo/2.svg";
+// import Logo from "../Images/Logo/1.svg";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -51,9 +53,8 @@ const Navbar = () => {
                 <Link to="/">
                   <img
                     class="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    //   src={Logo}
-                    alt="Your Company"
+                    src={Logo}
+                    alt="DEVNUXES"
                   />
                 </Link>
               </div>
@@ -62,21 +63,21 @@ const Navbar = () => {
                   <div class="flex space-x-4 ">
                     <Link
                       to="/"
-                      class=" hover:bg-gray-700 hover:text-white text-gray-300 rounded-md px-3 py-2 text-base font-medium"
+                      class="transition duration-200 hover:bg-gray-900 hover:text-white text-gray-300 rounded-md px-3 py-2 text-base font-medium"
                       aria-current="page"
                     >
                       Home
                     </Link>
                     <Link
                       to="/About"
-                      class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-base font-medium"
+                      class="text-gray-300 transition duration-200 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 text-base font-medium"
                     >
                       About
                     </Link>
 
                     <div className="relative">
                       <button
-                        className="px-4 py-2 hover:bg-gray-700 hover:text-white text-gray-300 rounded-md text-base font-medium focus:outline-none"
+                        className="px-4 py-2 transition duration-200 hover:bg-gray-900 hover:text-white text-gray-300 rounded-md text-base font-medium focus:outline-none"
                         onMouseEnter={handleMousehover}
                         onMouseLeave={handleMousehover_leave}
                       >
@@ -115,7 +116,7 @@ const Navbar = () => {
                     </div>
                     <div className="relative">
                       <button
-                        className="px-4 py-2 hover:bg-gray-700 hover:text-white text-gray-300 rounded-md text-base font-medium focus:outline-none"
+                        className="px-4 py-2 transition duration-200 hover:bg-gray-900 hover:text-white text-gray-300 rounded-md text-base font-medium focus:outline-none"
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
                       >
@@ -155,7 +156,7 @@ const Navbar = () => {
                   </div>
                 </div>
                 <Link to="/Contact">
-                  <button className="ml-5 px-3 py-2 border border-alpha text-white rounded-md hover:bg-alpha">
+                  <button className="ml-5 px-3 py-2 border border-alpha text-white rounded-md hover:bg-alpha bg-transparent backdrop-blur-sm transition duration-200">
                     Contact us
                   </button>
                 </Link>

@@ -1,8 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import "./Contact.css";
 
 const Contact = () => {
+  const [FormData, setFormData] = useState({
+    fname: '',
+    lname: '',
+    email: '',
+    company: '',
+    serviceRequired: '',
+    projectDetails: ''
+  })
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...FormData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('/api/users/', FormData);
+      console.log(response.data); // Assuming the response contains some data
+      // You can handle success actions here, such as displaying a success message
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // You can handle error actions here, such as displaying an error message
+    }
+  };
+
   return (
+
     <>
       <div className="Form_container">
         <div class="grid grid-rows-1">
@@ -16,8 +47,9 @@ const Contact = () => {
             you?
           </p>
           <div class="grid grid-cols-2 gap-8 mx-20">
+
             <div className=" bg-gray-800 w-2/2 py-10 px-10 rounded-2xl">
-              <form className=" grid grid-cols-2 gap-4">
+              <form className=" grid grid-cols-2 gap-4" onSubmit={handleSubmit}>
                 <div class="mb-2">
                   <label class="block text-sm font-medium text-white">
                     First Name
@@ -26,7 +58,9 @@ const Contact = () => {
                     type="text"
                     name="fname"
                     placeholder="ex: John"
-                    class="mt-1 block w-full rounded-md bg-gray-800 border-gray-300 shadow-sm  focus:ring-alpha text-sm font-medium text-white"
+                    className="mt-1 block w-full rounded-md bg-gray-800 border-gray-300 shadow-sm focus:ring-alpha text-sm font-medium text-white"
+                    value={FormData.fname}
+                    onChange={handleChange}
                   />
                 </div>
                 <div class="mb-2">
@@ -37,7 +71,9 @@ const Contact = () => {
                     type="text"
                     name="lname"
                     placeholder="ex: Wick"
-                    class="mt-1 block w-full rounded-md bg-gray-800 border-gray-300 shadow-sm  focus:ring-alpha text-sm font-medium text-white"
+                    className="mt-1 block w-full rounded-md bg-gray-800 border-gray-300 shadow-sm focus:ring-alpha text-sm font-medium text-white"
+                    value={FormData.lname}
+                    onChange={handleChange}
                   />
                 </div>
                 <div class="mb-2">
@@ -49,6 +85,8 @@ const Contact = () => {
                     name="email"
                     placeholder="ex: contact@devnuxes.com"
                     class="mt-1 block w-full rounded-md bg-gray-800 border-gray-300 shadow-sm  focus:ring-alpha text-sm font-medium text-white"
+                    value={FormData.email}
+                    onChange={handleChange}
                   />
                 </div>
                 <div class="mb-2">
@@ -60,6 +98,8 @@ const Contact = () => {
                     name="company"
                     placeholder="ex: DevNuxes"
                     class="mt-1 block w-full rounded-md bg-gray-800 border-gray-300 shadow-sm  focus:ring-alpha text-sm font-medium text-white"
+                    value={FormData.company}
+                    onChange={handleChange}
                   />
                 </div>
                 <div class="mb-2">
@@ -68,9 +108,11 @@ const Contact = () => {
                   </label>
                   <input
                     type="text"
-                    name="company"
+                    name="serviceRequired"
                     placeholder="ex: web Design"
                     class="mt-1 block w-full rounded-md bg-gray-800 border-gray-300 shadow-sm  focus:ring-alpha text-sm font-medium text-white"
+                    value={FormData.serviceRequired}
+                    onChange={handleChange}
                   />
                 </div>
               </form>
@@ -79,19 +121,23 @@ const Contact = () => {
                   Project Details
                 </label>
                 <textarea
-                  name="feedback"
+                  name="projectDetails"
                   rows="4"
-                  class="mt-1 block w-full rounded-md text-white text-sm font-medium bg-gray-800 border-gray-300 shadow-sm  focus:ring-alpha"
+                  className="mt-1 block w-full rounded-md text-white text-sm font-medium bg-gray-800 border-gray-300 shadow-sm focus:ring-alpha"
                   placeholder="Write your Project Details here..."
+                  value={FormData.projectDetails}
+                  onChange={handleChange}
                 ></textarea>
               </div>
               <button
                 type="submit"
-                class=" border border-alpha hover:bg-alpha text-white font-normal py-2 px-5 rounded mt-5"
+                className="border border-alpha hover:bg-alpha text-white font-normal py-2 px-5 rounded mt-5"
+                onSubmit={handleSubmit}
               >
                 Submit
               </button>
             </div>
+
             <div className="w-96 flex flex-col px-10 mt-10">
               <h2 class="text-4xl font-bold text-white mb-16">Contact Us.</h2>
               <h3 class="text-gray-100 font-bold text-2xl">Email us</h3>
@@ -107,7 +153,7 @@ const Contact = () => {
         </div>
       </div>
 
-      
+
     </>
   );
 };

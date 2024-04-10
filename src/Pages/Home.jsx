@@ -4,11 +4,29 @@ import webdev from "../Images/web-dev-01.svg";
 import webdes from "../Images/web_design.svg";
 import appdev from "../Images/Android_Dev.svg";
 import seo from "../Images/seo.svg";
+import Countdown from "../Components/Countdown";
 
 const Home = () => {
   return (
     <div className="home-page">
-      <div className="home_container"></div>
+      <div className="home_container">
+        
+        <h1 className="pt-32 pl-20 text-white font-bold text-6xl">Devnuxes Digital Agency</h1>
+        <p className="mt-5 pl-20 text-white font-mono font-sm text-xl">
+          We don't just design interfaces, we craft user experiences <br />
+          that meet your specific needs and business goals. From initial <br />
+          sketches to polished wireframes, we collaborate closely with you to <br />
+          understand your vision and translate it into reality.
+        </p>
+        <a href="/Portfolio">
+        <button type="button" class="button mt-5 ml-20 bg-alpha font-bold border border-alpha text-white hover:bg-transparent hover:backdrop-blur-sm transition duration-200">
+          Our Portfolio
+        </button>
+        </a>
+        
+        
+
+      </div>
       <div className="services mx-20 my-20 justify-center">
         <h3 className="text-center font-bold text-3xl text-white relative mt-8">
           ABOUT US
@@ -98,7 +116,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-
+      {/* <Countdown/> */}
       <div className=" counter-card bg-gray-900 grid grid-cols-3 gap-2 mx-16">
         <div className="grid grid-cols-2 h-32 text-white  border-r border-black  justify-center items-center">
           <div className="text-center">
@@ -123,7 +141,7 @@ const Home = () => {
           <div className="text-center">
             <h3 className="font-semibold text-lg mr-16">Expert Teamates</h3>
           </div>
-        </div> 
+        </div>
       </div>
     </div>
   );
